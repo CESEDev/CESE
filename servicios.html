@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios para Alumnos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Universidad XYZ</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#horario">Horario</a></li>
+                <li><a href="#calificaciones">Calificaciones</a></li>
+                <li><a href="#reinscripcion">Guía de Reinscripción</a></li>
+                <li><a href="#certificaciones">Certificaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Horario -->
+      <section id="horarios">
+    <h2>Consultar Horario</h2>
+    <button onclick="consultarHorarios(1)">Ver mi Horario</button>
+    <div id="resultado-horarios"></div>
+</section>
+
+<script>
+    function consultarHorarios(id_alumno) {
+        fetch(`consultar_horarios.php?id_alumno=${id_alumno}`)
+            .then(response => response.json())
+            .then(data => {
+                let resultado = "<ul>";
+                data.forEach(item => {
+                    resultado += `<li>${item.materia} - ${item.profesor} - ${item.horario} (${item.aula})</li>`;
+                });
+                resultado += "</ul>";
+                document.getElementById("resultado-horarios").innerHTML = resultado;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+
+        <!-- Calificaciones -->
+      <section id="calificaciones">
+    <h2>Consultar Calificaciones</h2>
+    <button onclick="consultarCalificaciones(1)">Ver mis Calificaciones</button>
+    <div id="resultado-calificaciones"></div>
+</section>
+
+<script>
+    function consultarCalificaciones(id_alumno) {
+        fetch(`consultar_calificaciones.php?id_alumno=${id_alumno}`)
+            .then(response => response.json())
+            .then(data => {
+                let resultado = "<ul>";
+                data.forEach(item => {
+                    resultado += `<li>${item.materia}: ${item.calificacion}</li>`;
+                });
+                resultado += "</ul>";
+                document.getElementById("resultado-calificaciones").innerHTML = resultado;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+
+        <!-- Guía de Reinscripción -->
+        <section id="reinscripcion">
+            <h1>Guía de Reinscripción</h1>
+            <p>Sigue estos pasos para completar tu proceso de reinscripción:</p>
+            <ol>
+                <li>Inicia sesión en el sistema de alumnos.</li>
+                <li>Actualiza tus datos personales.</li>
+                <li>Selecciona las materias disponibles en tu plan de estudios.</li>
+                <li>Genera tu ficha de pago y realiza el depósito.</li>
+                <li>Confirma tu inscripción en el sistema.</li>
+            </ol>
+            <p><a href="guia-reinscripcion.pdf" download>Descargar guía completa (PDF)</a></p>
+        </section>
+
+        <!-- Certificaciones -->
+    <section id="certificaciones">
+    <h2>Consultar Certificaciones</h2>
+    <button onclick="consultarCertificaciones(1)">Ver mis Certificaciones</button>
+    <div id="resultado-certificaciones"></div>
+</section>
+
+<script>
+    function consultarCertificaciones(id_alumno) {
+        fetch(`consultar_certificaciones.php?id_alumno=${id_alumno}`)
+            .then(response => response.json())
+            .then(data => {
+                let resultado = "<ul>";
+                data.forEach(item => {
+                    resultado += `<li>${item.nombre_certificacion} - ${item.estado} (${item.fecha_obtencion || "N/A"})</li>`;
+                });
+                resultado += "</ul>";
+                document.getElementById("resultado-certificaciones").innerHTML = resultado;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>
+
+    </main>
+    <footer>
+        <p>© 2024 Universidad XYZ. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

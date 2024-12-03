@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventanilla en Línea</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Universidad XYZ</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#solicitudes">Solicitudes</a></li>
+                <li><a href="#tramites">Trámites Disponibles</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Ventanilla en Línea -->
+        <section id="solicitudes">
+            <h1>Ventanilla en Línea</h1>
+            <p>Realiza tus trámites desde cualquier lugar. Selecciona el tipo de solicitud que deseas realizar:</p>
+            <div class="cards">
+                <div class="card">
+                    <h2>Solicitud de Constancia</h2>
+                    <p>Genera constancias de estudios o documentos oficiales.</p>
+                    <button onclick="window.location.href='solicitud-constancia.html'">Solicitar Constancia</button>
+                </div>
+                <div class="card">
+                    <h2>Historial Académico</h2>
+                    <p>Consulta y descarga tu historial académico actualizado.</p>
+                    <button onclick="window.location.href='historial-academico.html'">Consultar Historial</button>
+                </div>
+                <div class="card">
+                    <h2>Revisión de Pagos</h2>
+                    <p>Consulta el estado de tus pagos y genera comprobantes.</p>
+                    <button onclick="window.location.href='pagos.html'">Revisar Pagos</button>
+                </div>
+                <div class="card">
+                    <h2>Solicitud de Baja</h2>
+                    <p>Gestiona bajas temporales o definitivas.</p>
+                    <button onclick="window.location.href='baja.html'">Solicitar Baja</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trámites Disponibles -->
+        <section id="tramites">
+            <h1>Trámites Disponibles</h1>
+            <ul>
+                <li><strong>Constancia de Estudios:</strong> Certificado oficial para diferentes propósitos.</li>
+                <li><strong>Reimpresión de Credencial:</strong> Genera una nueva credencial de estudiante.</li>
+                <li><strong>Cambio de Carrera:</strong> Solicita un cambio de programa académico.</li>
+                <li><strong>Ajuste de Horario:</strong> Solicita cambios en tu horario de clases.</li>
+                <li><strong>Pago de Servicios:</strong> Realiza pagos de inscripciones o servicios adicionales.</li>
+            </ul>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <h1>Contacto</h1>
+            <p>Si tienes dudas sobre algún trámite, comunícate con nosotros:</p>
+            <ul>
+                <li><strong>Correo Electrónico:</strong> ventanilla@universidadxyz.edu.mx</li>
+                <li><strong>Teléfono:</strong> +52 55 1234 5678</li>
+                <li><strong>Horario de Atención:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Universidad XYZ. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+
